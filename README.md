@@ -7,7 +7,7 @@
 ## 介绍
 
 > [!IMPORTANT]
-> 关于为何需要使用 CNflysky/linux-rockchip 源码进行编译，请阅读[discussions#16](https://github.com/CNflysky/redroid-rk3588/discussions/16)
+> 关于为何需要使用 CNflysky/linux-rockchip 源码进行编译，请阅读 [discussions#16](https://github.com/CNflysky/redroid-rk3588/discussions/16)
 
 预设内核采用 [CNflysky/linux-rockchip](https://github.com/CNflysky/linux-rockchip) 进行编译，该源码集成了 dma-buf 驱动选项，专为 Redroid 适配。
 
@@ -62,21 +62,21 @@ sudo cp vmlinuz-6.1.84-rk3588-redroid /boot/
 cd /boot
 ```
 
-8. 删除旧的链接符号：
+8. 删除旧链接符号：
 
 ```bash
 sudo rm -rf Image uInitrd
 ```
 
-9. 创建新的链接符号：
+9. 使用复制方式应用内核：
 
 ```bash
-sudo ln -s vmlinuz-6.1.84-rk3588-redroid Image
-sudo ln -s uInitrd-6.1.84-rk3588-redroid uInitrd
+sudo cp vmlinuz-6.1.84-rk3588-redroid Image
+sudo cp uInitrd-6.1.84-rk3588-redroid uInitrd
 ```
 
 > [!WARNING]  
-> 若创建链接符号失败：
+> 为何不使用链接符号：
 >
 > ```bash
 > orangepi@orangepi5pro:/boot$ sudo ln -s vmlinuz-6.1.84-rk3588-redroid Image
@@ -84,13 +84,6 @@ sudo ln -s uInitrd-6.1.84-rk3588-redroid uInitrd
 > orangepi@orangepi5pro:/boot$ sudo ln -s uInitrd-6.1.84-rk3588-redroid uInitrd
 > ln: failed to create symbolic link 'uInitrd': Operation not permitted
 > ```
-
-则使用复制方式：
-
-```bash
-sudo cp vmlinuz-6.1.84-rk3588-redroid Image
-sudo cp uInitrd-6.1.84-rk3588-redroid uInitrd
-```
 
 10. 重启设备
 
