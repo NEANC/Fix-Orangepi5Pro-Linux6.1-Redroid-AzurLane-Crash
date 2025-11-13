@@ -9,19 +9,19 @@
 > [!IMPORTANT]
 > 关于为何需要使用 CNflysky/linux-rockchip 源码进行编译，请阅读 [discussions#16](https://github.com/CNflysky/redroid-rk3588/discussions/16)
 
-预设内核采用 [CNflysky/linux-rockchip](https://github.com/CNflysky/linux-rockchip) 进行编译，该源码集成了 dma-buf 驱动选项，专为 Redroid 适配。
+预编译内核采用 [CNflysky/linux-rockchip](https://github.com/CNflysky/linux-rockchip) 进行编译，该源码集成了 dma-buf 驱动选项，专为 Redroid 适配。
 
 > [!TIP]
 > 该内核由 Alas-prod 群 微微黄 编译
 
 测试镜像：Orangepi5pro_1.0.6_ubuntu_jammy_desktop_xfce_linux6.1.43  
-预设内核：6.1.84-rk3588-redroid
+预编译内核：6.1.84-rk3588-redroid
 
 ---
 
-## 使用预设内核安装步骤
+## 预编译内核安装步骤
 
-1. 下载预设内核和内核模块文件：
+1. 下载预编译内核和内核模块文件：
 
 - [kernel.zip](kernel.zip)
 
@@ -62,9 +62,11 @@ sudo cp vmlinuz-6.1.84-rk3588-redroid /boot/
 cd /boot
 ```
 
-8. 删除旧链接符号：
+8. 备份并删除旧链接符号：
 
 ```bash
+sudo cp Image Image-6.1.43-rockchip-rk3588
+sudo cp uInitrd uInitrd-6.1.43-rockchip-rk3588
 sudo rm -rf Image uInitrd
 ```
 
@@ -237,10 +239,10 @@ EOF
 6. 重启 Docker 生效
 
 ```bash
-sudo systemctl daemon-reload
-sudo systemctl restart docker
 # 设置 Docker 开机自启
 sudo systemctl enable docker
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 ```
 
 7. 测试 docker 是否安装成功
