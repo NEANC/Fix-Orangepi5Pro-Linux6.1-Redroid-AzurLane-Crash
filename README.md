@@ -23,7 +23,7 @@
 
 1. 下载预编译内核和内核模块文件：
 
-- [kernel.zip](kernel.zip)
+- [kernel.zip](https://github.com/NEANC/Fix-Orangepi5Pro-Linux6.1-Redroid-AzurLane-Crash/raw/refs/heads/main/kernel.zip)
 
 2. 传输压缩包到设备：
 
